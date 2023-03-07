@@ -9,14 +9,19 @@ Vue.createApp({
             singleCar: null,
             deleteId: 0,
             deleteMessage: "",
+            addData: { model: "", vendor: "", price: 0 },
+            addMessage: "",
+            updateData: { id: 0, model: "", vendor: "", price: 0 },
+            updateMessage: ""
         }
     },
     methods: {
         getAllCars() {
-
+            this.helperGetAndShow(baseUrl)
         },
         getByVendor() {
-
+            const url = baseUrl + "?vendor=" + vendor
+            this.helperGetAndShow(url)
         },
         async helperGetAndShow(url) {
             try {
@@ -31,7 +36,12 @@ Vue.createApp({
         },
         async deleteCar(deleteId) {
 
-        }
+        },
+        async addCar() {
 
+        },
+        async updateCar() {
+
+        }
     }
 })
