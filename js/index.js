@@ -19,7 +19,7 @@ Vue.createApp({
         getAllCars() {
             this.helperGetAndShow(baseUrl)
         },
-        getByVendor() {
+        getByVendor(vendor) {
             const url = baseUrl + "?vendor=" + vendor
             this.helperGetAndShow(url)
         },
@@ -44,4 +44,4 @@ Vue.createApp({
 
         }
     }
-})
+}).mount("#app")

@@ -14,27 +14,58 @@
 <body>
     <h1>Mikkels Bilbutik</h1>
     <div id="app">
-        <h2>Se alle biler:</h2>
-        <button id="getAllButton" @click="getAllCars" class="btn btn-primary">Alle Biler</button>
-        <br>
-        <input v-model="vendorToGetBy" placeholder="Mærke" type="text" />
-        <button @click="getByVendor(vendorToGetBy)" class="btn btn-primary">Biler efter Mærke</button>
+        <div class="row" style="text-align: center;">
+            <div class="col-sm-6">
+                <h2>Se alle biler:</h2>
+                <button id="getAllButton" @click="getAllCars" class="btn btn-primary">Alle Biler</button>               
+            </div>
+            <div class="col-sm-6">
+                <h2>Søg efter Mærke</h2>
+                <input v-model="vendorToGetBy" placeholder="Mærke" type="text" required>
+                <button @click="getByVendor(vendorToGetBy)" class="submit">Søg</button>                
+            </div>
+        </div>
+        <div class="container-fluid" style="font-size: x-large;">
+            Biler:
+            <table class="table table-hover">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Mærke</th>
+                         : 
+                        <th>Model</th>
+                        <th>Pris</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td scope="row"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr>
+                        <td scope="row"></td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                </tbody>
+            </table>
+            <ul id="carlist" v-if="cars.length">
+                <li v-for="car in cars">
+                    {{car.id}} {{car.vendor}} : {{car.model}} {{car.price}}
+                </li>
+            </ul>
+            <div v-else>Ingen biler matcher</div>
+        </div>
 
-        <ul id="carlist" v-if="cars.lenght">
-            <li v-for="car in cars">
-                {{ car.id }} {{car.vendor}} : {{car.model }} {{ car.price}}
-            </li>
-        </ul>
-        <div v-else>Ingen biler matcher</div>
+        <h2>Søg efter en bil</h2>
 
-        <h2>Søg efter en bil (id)</h2>
-        
 
         <h2>Tilføj en bil</h2>
 
         <h2>Opdater en bil</h2>
 
-        <h2>Slet en bil (id)</h2>
+        <h2>Slet en bil</h2>
 
 
 
